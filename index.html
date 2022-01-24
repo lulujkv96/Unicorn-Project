@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+     <script src="https://kit.fontawesome.com/4bd69d4895.js" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>It's raining unicorns 🦄</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Kanit:wght@100;300&family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
+  </head>
+  <body>     
+     <div class="container">
+
+    <div class="main-container">
+       <header><div> It's Raining <div> Unicorns! 🦄</div></header>
+       <div class="wrap">
+   <form class="search">
+      <input type="text" id="city-search" class="searchTerm" placeholder="Type your city here...">
+      <button type="search" id= "button1" value="search" class="searchButton">
+        <i class="fa fa-search" id="searchButton"></i>
+     </button>
+    </form>
+</div>
+ <br>
+ <br>
+      <div class="cards">
+        <div class="card c1 card-2">
+          <div class="card__icon i1"><i class="fas fa-cloud"></i><div class="description" id="cond"></div></div>
+          
+          <h2 class="card__title" id="city">
+            </h2>
+            <h3 class="date" > <span class="day" id="h3-date0">Today </span><span class="time" id="hour-zero" > 10:00 </span><div class="date-number">01/16</div></h3>
+            
+            
+            <p> 
+               <div class="average"> Average temperature:</div>
+               <br>
+               <div class="temperature"><span type="number" id="celsius-value"> 
+      
+                </span>°<a href="#" id="celsius">C</a><small class="tempSlash">/</small><a href="#" id="far">F</a> <span class="max-min"> min <span id="min"></span>°/ max <span id="max"></span>°</span> </div>
+          
+          <span class="card__apply">
+            <a class="card__link" href="https://weather.com/" target="_blank"
+              >More details <i class="fas fa-arrow-right"></i
+            ></a>
+              </span></p>
+        </div>
+        <div class="card c2 card-2">
+           
+          <div class="card__icon i2"><i class="fas fa-cloud-sun"></i><div class="description">Partly cloudy</div> </div>
+          
+          <h2 class="card__title" id="city1">
+            New York City</h2>
+            <h3 class="date" ><span class="day" id="h3-date1"> Tomorrow </span><span class="time" id="hour-one"> 10:00 </span> <div class="date-number1">01/16</div></h3>
+            
+            
+            <p> <div class="temperature"> 
+      
+              <span type="number" id="celsius-value1"> 
+      
+                6</span>°<a href="#" id="celsius1">C</a><small class="tempSlash">/</small><a href="#" id="far1">F</a> <span class="max-min"> min <span id="min1">-10</span>°/ max <span id="max1">5</span>°</span></div>
+          
+          <span class="card__apply">
+            <a class="card__link" href="https://weather.com/" target="_blank
+              >More details <i class="fas fa-arrow-right"></i
+            ></a>
+              </span></p>
+        </div>
+        <div class="card c3 card-2">
+          <div class="card__icon i3"><i class="fas fa-cloud-sun"></i><div class="description">Partly cloudy</div></div>
+          
+          <h2 class="card__title" id="city2">
+            New York City</h2>
+            <h3 class="date" ><span class="day" id="h3-date2" >Saturday </span><span class="time" id="hour-two"> 10:00 </span><div class="date-number2">01/16</div></h3>
+            
+            
+            <p> <div class="temperature"> 
+      
+              <span type="number" id="celsius-value2"> 
+      
+                6</span>°<a href="#" id="celsius2">C</a><small class="tempSlash">/</small><a href="#" id="far2">F</a><span class="max-min"> min 11°/ max -6°</span></div>
+          
+          <span class="card__apply">
+            <a class="card__link" href="https://weather.com/" target="_blank
+              >More details <i class="fas fa-arrow-right"></i
+            ></a>
+              </span></p>
+        </div>
+        <div class="card c4 card-2">
+          <div class="card__icon i4"><i class="far fa-sun"></i><div class="description">Mostly sunny</div></div>
+          
+          <h2 class="card__title" id="city3">
+            New York City</h2>
+            <h3 class="date" > <span class="day" id="h3-date3">Sunday </span> <span class="time" id="hour-three"> 10:00 </span><div class="date-number3">01/16</div></h3>
+            
+            
+            <p> <div class="temperature"> 
+      
+                <span type="number" id="celsius-value3"> 
+      
+                  6</span>°<a href="#" id="celsius3">C</a><small class="tempSlash">/</small><a href="#" id="far3">F</a><span class="max-min"> min -2°/ max -1°</span></div>
+          
+          <span class="card__apply">
+            <a class="card__link" href="https://weather.com/" target="_blank
+              >More details <i class="fas fa-arrow-right"></i
+            ></a>
+              </span></p>
+        </div>
+        <div class="card c5 card-2">
+          <div class="card__icon i5"><i class="fas fa-cloud-rain"></i><div class="description">Rainy</div></div>
+          
+          <h2 class="card__title" id="city4">
+            New York City</h2>
+            <h3 class="date" ><span class="day" id="h3-date4"> Monday </span><span class="time" id="hour-four"> 10:00 </span><div class="date-number4">01/16</div></h3>
+            
+            
+            <p> <div class="temperature"> 
+      
+              <span type="number" id="celsius-value4"> 
+      
+                6</span>°<a href="#" id="celsius4">C</a><small class="tempSlash">/</small><a href="#" id="far4">F</a><span class="max-min"> min -2°/ max 6°</span></div>
+          
+          <span class="card__apply">
+            <a class="card__link" href="https://weather.com/" target="_blank
+              >More details <i class="fas fa-arrow-right"></i
+            ></a>
+              </span></p>
+        </div>
+        <div class="card c6 card-2">
+          <div class="card__icon i6"><i class="fas fa-cloud-sun"></i><div class="description">Partly cloudy</div></div>
+          
+          <h2 class="card__title" id="city5">
+            New York City</h2>
+            <h3 class="date" ><span class="day"id="h3-date5" > Tuesday </span><span class="time" id="hour-five"> 10:00 </span><div class="date-number5">01/16</div></h3>
+            
+            
+            <p> <div class="temperature"> 
+      
+              <span type="number" id="celsius-value5"> 
+      
+                6</span>°<a href="#" id="celsius5">C</a><small class="tempSlash">/</small><a href="#" id="far5">F</a><span class="max-min"> min -3°/ max 2°</span></div>
+          
+          <span class="card__apply">
+            <a class="card__link" href="https://weather.com/" target="_blank
+              >More details <i class="fas fa-arrow-right"></i
+            ></a>
+              </span></p>
+        </div>
+        
+    </div><p><footer>Coded by Lucrezia Berrospi <div class="contact-me"><i class="fab fa-instagram ig"></i>     <i class="fab fa-linkedin lk"></i>    <i class="far fa-envelope-open email"></i></footer>
+        </div></p></div>
+        <link rel="indexsheet" href="style/index.js">
+        <script src="style/index.js"> </script>
+  </body>
+</html>

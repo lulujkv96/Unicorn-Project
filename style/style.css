@@ -1,0 +1,278 @@
+body {
+  background-color: #f3c5dd59;
+  font-family: "Kanit", sans-serif;
+}
+header {
+  display: block;
+  position: absolute;
+  right: 15%;
+  top: 8%;
+  font-family: "Mochiy Pop P One", sans-serif;
+  font-size: 60px;
+  color: #fff;
+  text-shadow: 0 0 7px #ffadd6, 0 0 10px #ffadd6, 0 0 21px #ffadd6,
+    0 0 42px #fff, 0 0 82px #fff, 0 0 92px #cf9fe6, 0 0 102px #cf9fe6,
+    0 0 151px #cf9fe6;
+}
+footer {
+  text-align: center;
+  font-family: "Kanit", sans-serif;
+  font-size: 16px;
+}
+.tempSlash {
+  font-size: 30px;
+}
+.contact-me {
+  font-size: 25px;
+
+  color: #7d93f3;
+  transition: all 120ms ease-in-out;
+}
+.ig {
+  padding: 20px auto;
+}
+.ig:hover {
+  cursor: pointer;
+  background: #7d93f3;
+  color: #fff;
+}
+.lk {
+  margin: 6px 15px;
+}
+.lk:hover {
+  cursor: pointer;
+  background: #7d93f3;
+  color: #fff;
+}
+.email {
+  padding: 20px auto;
+}
+.email:hover {
+  cursor: pointer;
+  background: #7d93f3;
+  color: #fff;
+}
+.average {
+  font-size: 20px;
+  position: relative;
+  top: 165%;
+}
+.max-min {
+  font-size: 15px;
+  color: #fff;
+  display: block;
+  position: relative;
+  top: -18px;
+}
+.date {
+  color: #b96edb;
+  font-size: 18px;
+  font-family: "Mochiy Pop P One", sans-serif;
+}
+.search {
+  width: 70%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #a2baf5;
+  border-right: none;
+  padding: 5px;
+  height: 30px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #a2baf5;
+  font-family: "Comfortaa", cursive;
+  font-size: 18px;
+  font-weight: 130px;
+}
+
+.searchTerm:focus {
+  color: #a2baf5;
+}
+
+.searchButton {
+  width: 40px;
+
+  border: 2px solid #a2baf5;
+  background: #ffadd6;
+  text-align: center;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.wrap {
+  width: 50%;
+  position: absolute;
+  top: 5%;
+  left: 38.8%;
+  transform: translate(-50%, -50%);
+}
+.c1 {
+  width: 500px;
+  min-height: 475px;
+  margin: 10px 20px 0px 50px;
+  padding: 25px;
+}
+.c2 {
+  width: 500px;
+  max-height: 350px;
+  margin: 159px 20px 68px 50px;
+  padding: 3px 20px;
+  position: relative;
+  top: 59px;
+}
+.c3 {
+  width: 500px;
+  max-height: 350px;
+  margin: 56px 20px 61px 55px;
+  padding: 3px 20px;
+}
+.c4 {
+  width: 500px;
+  max-height: 350px;
+  margin: 10px 20px 20px 50px;
+  padding: 3px 20px;
+}
+.c5 {
+  width: 500px;
+  max-height: 350px;
+  margin: 10px 20px 20px 50px;
+  padding: 3px 20px;
+}
+.c6 {
+  width: 500px;
+  max-height: 350px;
+  margin: 0px 20px 60px 50px;
+  padding: 3px 20px;
+}
+
+.temperature {
+  font-size: 80px;
+  text-align: left;
+  padding: 0px 30px 10px;
+  position: relative;
+  bottom: 30%;
+  top: 10%;
+}
+.date-number,
+.date-number1,
+.date-number2,
+.date-number3,
+.date-number4,
+.date-number5 {
+  font-weight: lighter;
+  font-family: "Kanit", sans-serif;
+}
+.i1 {
+  font-size: 149px;
+  padding-right: 33px;
+  padding-top: 30px;
+}
+.i2,
+.i3,
+.i4,
+.i5,
+.i6 {
+  font-size: 105px;
+  margin-top: 10%;
+}
+.card__icon {
+  color: #fff;
+  text-align: right;
+
+  text-shadow: 0 0 7px #ffadd6, 0 0 10px #ffadd6, 0 0 21px #ffadd6,
+    0 0 42px #fff, 0 0 82px #fff, 0 0 92px #cf9fe6, 0 0 102px #cf9fe6,
+    0 0 151px #cf9fe6;
+}
+.description {
+  font-size: 17px;
+}
+.card__link {
+  display: block;
+  text-decoration: none;
+  text-align: right;
+  color: #fff;
+  margin-right: 27px;
+  font-size: 17px;
+  position: relative;
+  bottom: 20px;
+}
+.card__link:hover {
+  text-decoration: underline;
+  color: #fce1d0;
+}
+.main-container {
+  padding: 50px 10px 10px;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+}
+.card {
+  color: #7d93f3;
+  border: 1px solid #a2baf5;
+
+  display: grid;
+  justify-items: stretch;
+  align-content: center;
+  align-items: start;
+  grid-template-rows: 20px 50px 1fr 50px;
+  border-radius: 10px;
+  box-shadow: 0px 6px 10px rgb(0 0 0 / 25%);
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+  background-image: linear-gradient(
+    103.3deg,
+    #fce1d0 30%,
+    #ffadd6 55.7%,
+    #a2baf5 81.8%
+  );
+}
+
+.card:hover {
+  box-shadow: 0px 6px 10px rgb(0 0 0 / 40%);
+  transform: scale(1.01);
+}
+#celsius,
+#far,
+#celsius1,
+#far1,
+#celsius2,
+#far2,
+#celsius3,
+#far3,
+#celsius4,
+#far4,
+#celsius5,
+#far5 {
+  text-decoration: none;
+  color: #7d93f3;
+  font-size: 40px;
+}
+#celsius:hover,
+#celsius1:hover,
+#celsius2:hover,
+#celsius3:hover,
+#celsius4:hover,
+#celsius5:hover {
+  color: #b96edb;
+  cursor: pointer;
+}
+#far:hover,
+#far1:hover,
+#far2:hover,
+#far3:hover,
+#far5:hover {
+  color: #b96edb;
+  cursor: pointer;
+}
+#cond {
+  text-transform: capitalize;
+}
