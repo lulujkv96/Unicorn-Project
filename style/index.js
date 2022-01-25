@@ -9,13 +9,12 @@ let days = [
   "Friday",
   "Saturday",
 ];
-function formatDate(date) {
+function formatDate(timestamp) {
+  let date = new Date(timestamp * 1000);
   let currentDay = days[date.getDay()];
 
   return `${currentDay}`;
 }
-
-document.querySelector("#h3-date0").innerHTML = formatDate(now);
 
 let tomorrow = new Date(now);
 function formatDate1() {
@@ -62,7 +61,8 @@ function formatDate5() {
 
 document.querySelector("#h3-date5").innerHTML = formatDate5(day5);
 
-function formatAmPm(time) {
+function formatAmPm(timestamp) {
+  let time = new Date(timestamp);
   let meridium = time.getHours();
   if (meridium < 12 || meridium === 0) {
     meridium = "AM";
@@ -71,7 +71,8 @@ function formatAmPm(time) {
   }
   return `<small> ${meridium}</small>`;
 }
-function formatHour(time) {
+function formatHour(timestamp) {
+  let time = new Date(timestamp);
   let hour = time.getHours();
   if (hour < 10) {
     hour = `0${hour}`;
@@ -82,24 +83,18 @@ function formatHour(time) {
   }
   return ` ${hour}:${minute}`;
 }
-document.querySelector("#hour-zero").innerHTML =
-  document.querySelector("#hour-one").innerHTML =
-  document.querySelector("#hour-two").innerHTML =
-  document.querySelector("#hour-three").innerHTML =
-  document.querySelector("#hour-four").innerHTML =
-  document.querySelector("#hour-five").innerHTML =
-    formatHour(now) + formatAmPm(now);
 
-function formatMonthDate(months, dates) {
-  let month = months.getMonth();
+function formatMonthDate(timestamp) {
+  let date = new Date(timestamp);
+  let month = date.getMonth();
   if (month < 10) {
     month = `${month}`;
   }
-  let date = dates.getDate();
-  if (date < 10) {
+  let dates = date.getDate();
+  if (dates < 10) {
     date = `0${date}`;
   }
-  return `${month + 1}/${date}`;
+  return `${month + 1}/${dates}`;
 }
 document.querySelector("h3 div.date-number").innerHTML = formatMonthDate(
   now,
@@ -287,8 +282,41 @@ function newUnitF(temperature) {
   let fToCel = Math.round((cToFah - 32) * (5 / 9));
   return `${fToCel}`;
 }
-
+function changeIcon(apIcon) {
+  let icon = apIcon;
+  let newIcon = document.querySelector("#icon");
+  if (`${icon}` === "13d") {
+    newIcon = `<i class="far fa-snowflake"></i>`;
+  }
+  if (`${icon}` === "50d") {
+    newIcon = `<i class="fas fa-smog"></i>`;
+  }
+  if (`${icon}` === "01d") {
+    newIcon = `<i class="fas fa-sun"></i>`;
+  }
+  if (`${icon}` === "01n") {
+    newIcon = `<i class="fas fa-moon"></i>`;
+  }
+  if (`${icon}` === "02d" || "02n" || "03d" || "03n" || "04d" || "04n") {
+    newIcon = `<i class="fas fa-cloud"></i>`;
+  }
+  if (`${icon}` === "10d") {
+    newIcon = `<i class="fas fa-cloud-sun-rain"></i>`;
+  }
+  if (`${icon}` === "09d") {
+    newIcon = `<i class="fas fa-cloud-rain"></i>`;
+  }
+  if (`${icon}` === "11d") {
+    newIcon = `<i class="fas fa-bolt"></i>`;
+  }
+  return `${newIcon}`;
+}
 function showWeather(response) {
+  document.querySelector("#icon").innerHTML = changeIcon(
+    response.data.weather[0].icon
+  );
+
+  document.querySelector("#h3-date0").innerHTML = formatDate(response.data.dt);
   document.querySelector("#city").innerHTML =
     document.querySelector("#city1").innerHTML =
     document.querySelector("#city2").innerHTML =
@@ -296,6 +324,16 @@ function showWeather(response) {
     document.querySelector("#city4").innerHTML =
     document.querySelector("#city5").innerHTML =
       response.data.name;
+  document.querySelector("#hour-zero").innerHTML =
+    document.querySelector("#hour-one").innerHTML =
+    document.querySelector("#hour-two").innerHTML =
+    document.querySelector("#hour-three").innerHTML =
+    document.querySelector("#hour-four").innerHTML =
+    document.querySelector("#hour-five").innerHTML =
+      formatHour(response.data.dt * 1000) + formatAmPm(response.data.dt * 1000);
+  document.querySelector("#wind").innerHTML = ` ${Math.round(
+    response.data.wind.speed
+  )} `;
   let temp = Math.round(response.data.main.temp);
   let min = Math.round(response.data.main.temp_min);
   let max = Math.round(response.data.main.temp_max);
@@ -327,13 +365,16 @@ function getRealData(city) {
   axios.get(apiUrl).then(showWeather);
 }
 
-function formatCity(event) {
-  event.preventDefault();
-
+function formatCity() {
   let city = document.querySelector("#city-search").value;
 
   getRealData(city);
 }
-
+function contactMe(event) {
+  event.preventDefault();
+  alert(`Slide into my e-mails at:  🌟 lucreziajkv@icloud.com 🌟`);
+}
 let button = document.querySelector("#button1");
 button.addEventListener("click", formatCity);
+let mail = document.querySelector(".mail");
+mail.addEventListener("click", contactMe);

@@ -1,3 +1,6 @@
+a {
+  text-decoration: none;
+}
 body {
   background-color: #f3c5dd59;
   font-family: "Kanit", sans-serif;
@@ -19,6 +22,9 @@ footer {
   font-family: "Kanit", sans-serif;
   font-size: 16px;
 }
+.container {
+  scale: 75%;
+}
 .tempSlash {
   font-size: 30px;
 }
@@ -30,27 +36,35 @@ footer {
 }
 .ig {
   padding: 20px auto;
+  color: #7d93f3;
 }
 .ig:hover {
   cursor: pointer;
-  background: #7d93f3;
-  color: #fff;
+  box-shadow: 0px 6px 10px rgb(0 0 0 / 40%);
+  transform: scale(110%);
+  color: #7d93f3;
 }
 .lk {
   margin: 6px 15px;
+  text-decoration: none;
+  color: #7d93f3;
 }
 .lk:hover {
   cursor: pointer;
-  background: #7d93f3;
-  color: #fff;
+  box-shadow: 0px 6px 10px rgb(0 0 0 / 40%);
+  transform: scale(110%);
+  color: #7d93f3;
 }
 .email {
   padding: 20px auto;
+  transition: all 150ms ease-in-out;
+  color: #7d93f3;
 }
 .email:hover {
   cursor: pointer;
-  background: #7d93f3;
-  color: #fff;
+  box-shadow: 0px 6px 10px rgb(0 0 0 / 40%);
+  transform: scale(110%);
+  color: #7d93f3;
 }
 .average {
   font-size: 20px;
@@ -191,6 +205,7 @@ footer {
 }
 .description {
   font-size: 17px;
+  text-transform: capitalize;
 }
 .card__link {
   display: block;
@@ -235,16 +250,25 @@ footer {
     #a2baf5 81.8%
   );
 }
+
+.card:hover {
+  box-shadow: 0px 6px 10px rgb(0 0 0 / 40%);
+  transform: scale(1.01);
+}
+.wind {
+  color: #f397d3;
+  font-weight: bolder;
+  font-size: 18px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
 .github {
   text-decoration: none;
   color: #b96edb;
   font-weight: bold;
 }
 
-.card:hover {
-  box-shadow: 0px 6px 10px rgb(0 0 0 / 40%);
-  transform: scale(1.01);
-}
 #celsius,
 #far,
 #celsius1,
@@ -277,7 +301,4 @@ footer {
 #far5:hover {
   color: #b96edb;
   cursor: pointer;
-}
-#cond {
-  text-transform: capitalize;
 }
