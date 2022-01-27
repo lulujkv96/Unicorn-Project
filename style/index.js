@@ -282,40 +282,52 @@ function newUnitF(temperature) {
   let fToCel = Math.round((cToFah - 32) * (5 / 9));
   return `${fToCel}`;
 }
-function changeIcon(apIcon) {
-  let icon = apIcon;
+
+function changeIcon(icon) {
   let newIcon = document.querySelector("#icon");
-  if (`${icon}` === "13d") {
-    newIcon = `<i class="far fa-snowflake"></i>`;
+
+  if (icon === "Snow") {
+    newIcon.innerHTML = `<i class="far fa-snowflake"></i>`;
   }
-  if (`${icon}` === "50d") {
-    newIcon = `<i class="fas fa-smog"></i>`;
+  if (
+    icon === "Mist" ||
+    "Smoke" ||
+    "Haze" ||
+    "Dust" ||
+    "Fog" ||
+    "Sand" ||
+    "Ash" ||
+    "Squall" ||
+    "Tornado"
+  ) {
+    newIcon.innerHTML = `<i class="fas fa-smog"></i>`;
   }
-  if (`${icon}` === "01d") {
-    newIcon = `<i class="fas fa-sun"></i>`;
+  if (icon === "Clear") {
+    let time = new Date();
+    let hour = time.getHours();
+    if (hour < 18) {
+      newIcon.innerHTML = `<i class="far fa-sun"></i>`;
+    } else {
+      newIcon.innerHTML = `<i class="fas fa-moon"></i>`;
+      return newIcon;
+    }
   }
-  if (`${icon}` === "01n") {
-    newIcon = `<i class="fas fa-moon"></i>`;
+  if (icon === "Clouds") {
+    newIcon.innerHTML = `<i class="fas fa-cloud"></i>`;
   }
-  if (`${icon}` === "02d" || "02n" || "03d" || "03n" || "04d" || "04n") {
-    newIcon = `<i class="fas fa-cloud"></i>`;
+
+  if (icon === "Drizzle") {
+    newIcon.innerHTML = `<i class="fas fa-cloud-rain"></i>`;
   }
-  if (`${icon}` === "10d") {
-    newIcon = `<i class="fas fa-cloud-sun-rain"></i>`;
+  if (icon === "Thunderstorm") {
+    newIcon.innerHTML = `<i class="fas fa-bolt"></i>`;
   }
-  if (`${icon}` === "09d") {
-    newIcon = `<i class="fas fa-cloud-rain"></i>`;
-  }
-  if (`${icon}` === "11d") {
-    newIcon = `<i class="fas fa-bolt"></i>`;
-  }
-  return `${newIcon}`;
+  return `${newIcon.innerHTML}`;
 }
 function showWeather(response) {
   document.querySelector("#icon").innerHTML = changeIcon(
-    response.data.weather[0].icon
+    response.data.weather[0].main
   );
-
   document.querySelector("#h3-date0").innerHTML = formatDate(response.data.dt);
   document.querySelector("#city").innerHTML =
     document.querySelector("#city1").innerHTML =
@@ -331,9 +343,9 @@ function showWeather(response) {
     document.querySelector("#hour-four").innerHTML =
     document.querySelector("#hour-five").innerHTML =
       formatHour(response.data.dt * 1000) + formatAmPm(response.data.dt * 1000);
-  document.querySelector("#wind").innerHTML = ` ${Math.round(
+  document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
-  )} `;
+  );
   let temp = Math.round(response.data.main.temp);
   let min = Math.round(response.data.main.temp_min);
   let max = Math.round(response.data.main.temp_max);
@@ -365,16 +377,19 @@ function getRealData(city) {
   axios.get(apiUrl).then(showWeather);
 }
 
-function formatCity() {
+function formatCity(event) {
+  event.preventDefault();
   let city = document.querySelector("#city-search").value;
 
   getRealData(city);
 }
+
+let button = document.querySelector("#searchButton");
+button.addEventListener("click", formatCity);
 function contactMe(event) {
   event.preventDefault();
   alert(`Slide into my e-mails at:  🌟 lucreziajkv@icloud.com 🌟`);
 }
-let button = document.querySelector("#button1");
-button.addEventListener("click", formatCity);
+
 let mail = document.querySelector(".mail");
 mail.addEventListener("click", contactMe);
