@@ -302,16 +302,15 @@ function changeIcon(icon) {
   ) {
     newIcon.innerHTML = `<i class="fas fa-smog"></i>`;
   }
-  if (icon === "Clear") {
-    let time = new Date();
-    let hour = time.getHours();
-    if (hour < 18) {
-      newIcon.innerHTML = `<i class="far fa-sun"></i>`;
-    } else {
-      newIcon.innerHTML = `<i class="fas fa-moon"></i>`;
-      return newIcon;
-    }
+  let time = new Date();
+  let hour = time.getHours();
+  if (icon === "Clear" || (icon === `Clear sky` && hour < 18)) {
+    newIcon.innerHTML = `<i class="far fa-sun"></i>`;
   }
+  if (icon === "Clear" || (icon === `Clear sky` && hour > 18)) {
+    newIcon.innerHTML = `<i class="fas fa-moon"></i>`;
+  }
+
   if (icon === "Clouds") {
     newIcon.innerHTML = `<i class="fas fa-cloud"></i>`;
   }
@@ -324,6 +323,7 @@ function changeIcon(icon) {
   }
   return `${newIcon.innerHTML}`;
 }
+
 function showWeather(response) {
   document.querySelector("#icon").innerHTML = changeIcon(
     response.data.weather[0].main
@@ -369,6 +369,8 @@ function showWeather(response) {
   c.addEventListener("click", fToC);
   let description = response.data.weather[0].description;
   document.querySelector("#cond").innerHTML = `${description}`;
+
+  console.log(response.data);
 }
 
 function getRealData(city) {
@@ -384,7 +386,7 @@ function formatCity(event) {
   getRealData(city);
 }
 
-let button = document.querySelector("#searchButton");
+let button = document.querySelector("#button1");
 button.addEventListener("click", formatCity);
 function contactMe(event) {
   event.preventDefault();
