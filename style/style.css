@@ -5,15 +5,16 @@
 }
 a {
   text-decoration: none;
-  color: #a48fc8;
+  color: #f6f3fa;
 }
 .github {
-  color: #f5cdde;
-  transition: all 0.2s ease-in-out;
+  color: #f0d9e2;
+  transition: all 1.1s ease-in-out;
 }
 .github:hover {
-  transform: scale(1.6);
-  color: #f1e7ee;
+  font-size: 22px;
+  text-decoration: underline;
+  color: white;
 }
 .unicorn {
   max-width: 40%;
@@ -101,10 +102,6 @@ footer {
   padding: 30px;
 }
 
-/* HEADING */
-
-/* CARDS */
-
 .card-1 {
   position: absolute;
 
@@ -112,9 +109,10 @@ footer {
   width: 500px;
   left: 10%;
   margin: 20px;
-  padding: 20px;
+  padding: 30px;
 
-  max-height: 390px;
+  min-height: 200px;
+  height: 390px;
 
   display: block;
 
@@ -148,7 +146,6 @@ footer {
   padding-bottom: 40px;
   font-size: 16px;
   font-family: "Mochiy Pop P One", sans-serif;
-  padding-bottom: 30px;
 }
 .col3 {
   text-align: right;
@@ -156,10 +153,15 @@ footer {
   padding-left: 40px;
 }
 .col2 {
-  position: relative;
+  position: absolute;
 
   text-align: right;
   right: 18%;
+  bottom: 28%;
+}
+.temp_cond {
+  position: relative;
+  top: 20%;
 }
 #city {
   line-height: 25px;

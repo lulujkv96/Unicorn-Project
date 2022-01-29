@@ -115,8 +115,6 @@ function fToC(response) {
   document.querySelector("#celsius-value1").innerHTML = `${Math.round(
     temperature
   )}`;
-  document.querySelector("#min1").innerHTML = `${Math.round(min)}`;
-  document.querySelector("#max1").innerHTML = `${Math.round(max)}`;
 }
 function cToF() {
   let temperature = response.data.main.temp;
@@ -130,8 +128,6 @@ function cToF() {
   document.querySelector("#celsius-value1").innerHTML = `${newUnit(
     temperature
   )}`;
-  document.querySelector("#max1").innerHTML = `${newUnit(max)}`;
-  document.querySelector("#min1").innerHTML = `${newUnit(min)}`;
 }
 
 function showWeather(response) {
@@ -166,8 +162,6 @@ function showWeather(response) {
   c.addEventListener("click", fToC);
   let description = response.data.weather[0].description;
   document.querySelector("#cond").innerHTML = `${description}`;
-
-  getForecast(response.data.coord);
 }
 
 function getRealData(city) {
@@ -185,6 +179,7 @@ function formatCity(event) {
 
 let button = document.querySelector("#button1");
 button.addEventListener("click", formatCity);
+
 function contactMe(event) {
   event.preventDefault();
   alert(`Slide into my e-mails at:  🌟 lucreziajkv@icloud.com 🌟`);
