@@ -21,12 +21,11 @@ a {
   position: relative;
   left: 55%;
 }
-
-body {
-  background-image: url(media/background.png);
+#back {
   background-repeat: no-repeat;
-  background-size: 110%;
-
+  background-size: 118%;
+}
+body {
   font-family: "Kanit", sans-serif;
   font-size: 16px;
   color: #a48fc8;
