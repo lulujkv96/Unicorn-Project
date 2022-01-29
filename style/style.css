@@ -57,6 +57,7 @@ footer {
 }
 .search {
   width: 70%;
+  color: #a48fc8;
 
   display: inline-block;
   position: relative;
@@ -109,7 +110,7 @@ footer {
   width: 500px;
   left: 10%;
   margin: 20px;
-  padding: 30px;
+  padding: 36px;
 
   min-height: 200px;
   height: 390px;
@@ -139,8 +140,10 @@ footer {
   display: inline-block;
   padding-right: 30px;
 
-  font-size: 18px;
-  font-family: "Mochiy Pop P One", sans-serif;
+  font-weight: bold;
+
+  font-family: "Kanit", sans-serif;
+  font-size: 20px;
 }
 .c4 {
   padding-bottom: 40px;
@@ -157,7 +160,7 @@ footer {
 
   text-align: right;
   right: 18%;
-  bottom: 28%;
+  bottom: 31.5%;
 }
 .temp_cond {
   position: relative;
@@ -167,7 +170,8 @@ footer {
   line-height: 25px;
   font-size: 40px;
   color: #f8edfa;
-  padding-top: 0;
+  padding-bottom: 0;
+  font-family: "Mochiy Pop P One", sans-serif;
 }
 .wind {
   line-height: 30px;
