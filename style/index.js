@@ -66,7 +66,7 @@ function changeIcon(icon) {
   let newIcon = document.querySelector("#icon");
 
   if (icon === "Snow") {
-    newIcon.innerHTML = `<i class="far fa-snowflake i1"></i>`;
+    newIcon.innerHTML = `<i class="far fa-snowflake"></i>`;
   }
   if (
     icon === "Mist" ||
@@ -79,28 +79,70 @@ function changeIcon(icon) {
     "Squall" ||
     "Tornado"
   ) {
-    newIcon.innerHTML = `<i class="fas fa-smog i1"></i>`;
+    newIcon.innerHTML = `<i class="fas fa-smog"></i>`;
   }
   let time = new Date();
   let hour = time.getHours();
-  if (icon === "Clear" || (icon === `Clear sky` && hour < 18)) {
-    newIcon.innerHTML = `<i class="far fa-sun i1"></i>`;
+  if (icon === "Clear" && hour < 18) {
+    newIcon.innerHTML = `<i class="far fa-sun"></i>`;
   }
-  if (icon === "Clear" || (icon === `Clear sky` && hour > 18)) {
-    newIcon.innerHTML = `<i class="fas fa-moon i1"></i>`;
+  if (icon === "Clear" && hour > 18) {
+    newIcon.innerHTML = `<i class="fas fa-moon"></i>`;
   }
 
   if (icon === "Clouds") {
-    newIcon.innerHTML = `<i class="fas fa-cloud i1"></i>`;
+    newIcon.innerHTML = `<i class="fas fa-cloud"></i>`;
   }
 
-  if (icon === "Drizzle") {
-    newIcon.innerHTML = `<i class="fas fa-cloud-rain i1"></i>`;
+  if (icon === "Drizzle" || icon === "Rain") {
+    newIcon.innerHTML = `<i class="fas fa-cloud-rain"></i>`;
   }
   if (icon === "Thunderstorm") {
-    newIcon.innerHTML = `<i class="fas fa-bolt i1"></i>`;
+    newIcon.innerHTML = `<i class="fas fa-bolt"></i>`;
   }
-  return `${newIcon.innerHTML}`;
+  return newIcon.innerHTML;
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="col-6 foreC">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
+          
+					<div class="card-12"><div class="col-2">
+							<div class="forecast-date">${formatDate(forecastDay.dt)}</div> 
+						<div class="icon2 i2">${changeIcon(
+              forecastDay.weather[0].main
+            )}</div><div class="temp1">${
+          forecastDay.weather[0].description
+        }</div>Wind: <span class="wind-value1">${Math.round(
+          forecastDay.wind_speed
+        )}</span>km/h
+							<div class="forecast-temperature-max">${Math.round(
+                forecastDay.temp.max
+              )}°<small>/</small><span class="forecast-temperature-min"> ${Math.round(
+          forecastDay.temp.min
+        )}°</span></div>
+							
+						</div></div>
+  `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "9c4544f45195250e2bcd644c91a57aeb";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function showWeather(response) {
@@ -150,6 +192,7 @@ function showWeather(response) {
   c.addEventListener("click", fToC);
   let description = response.data.weather[0].description;
   document.querySelector("#cond").innerHTML = `${description}`;
+  getForecast(response.data.coord);
 }
 
 function getRealData(city) {
