@@ -103,35 +103,8 @@ function changeIcon(icon) {
   return `${newIcon.innerHTML}`;
 }
 
-function fToC(response) {
-  let temperature = response.data.main.temp;
-  let min = response.data.main.temp_min;
-  let max = response.data.main.temp_max;
-  document.querySelector("#celsius-value").innerHTML = `${Math.round(
-    temperature
-  )}`;
-  document.querySelector("#min").innerHTML = `${Math.round(min)}`;
-  document.querySelector("#max").innerHTML = `${Math.round(max)}`;
-  document.querySelector("#celsius-value1").innerHTML = `${Math.round(
-    temperature
-  )}`;
-}
-function cToF() {
-  let temperature = response.data.main.temp;
-  let min = response.data.main.temp_min;
-  let max = response.data.main.temp_max;
-  document.querySelector("#celsius-value").innerHTML = `${newUnit(
-    temperature
-  )}`;
-  document.querySelector("#max").innerHTML = `${newUnit(max)}`;
-  document.querySelector("#min").innerHTML = `${newUnit(min)}`;
-  document.querySelector("#celsius-value1").innerHTML = `${newUnit(
-    temperature
-  )}`;
-}
-
 function showWeather(response) {
-  document.querySelector("#icon").innerHTML = changeIcon(
+  document.querySelector("#icon").innerHTML.inn = changeIcon(
     response.data.weather[0].main
   );
   document.querySelector("#month").innerHTML = formatMonthDate(
@@ -155,9 +128,24 @@ function showWeather(response) {
     response.data.main.temp_max
   )}`;
 
+  let temp = Math.round(response.data.main.temp);
+  let min = Math.round(response.data.main.temp_min);
+  let max = Math.round(response.data.main.temp_max);
+  document.querySelector("#celsius-value").innerHTML = `${temp}`;
+  document.querySelector("#min").innerHTML = `${min}`;
+  document.querySelector("#max").innerHTML = `${max}`;
+  function cToF() {
+    document.querySelector("#celsius-value").innerHTML = `${newUnit(temp)}`;
+    document.querySelector("#max").innerHTML = `${newUnit(max)}`;
+    document.querySelector("#min").innerHTML = `${newUnit(min)}`;
+  }
   let f = document.querySelector("#far");
   f.addEventListener("click", cToF);
-
+  function fToC() {
+    document.querySelector("#celsius-value").innerHTML = `${temp}`;
+    document.querySelector("#max").innerHTML = `${max}`;
+    document.querySelector("#min").innerHTML = `${min}`;
+  }
   let c = document.querySelector("#celsius");
   c.addEventListener("click", fToC);
   let description = response.data.weather[0].description;
