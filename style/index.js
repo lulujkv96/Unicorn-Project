@@ -83,11 +83,12 @@ function changeIcon(icon) {
   }
   let time = new Date();
   let hour = time.getHours();
-  if (icon === "Clear" && hour < 18) {
-    newIcon.innerHTML = `<i class="far fa-sun"></i>`;
-  }
-  if (icon === "Clear" && hour > 18) {
-    newIcon.innerHTML = `<i class="fas fa-moon"></i>`;
+  if (icon === "Clear") {
+    if (hour < 18) {
+      newIcon.innerHTML = `<i class="far fa-sun"></i>`;
+    } else {
+      newIcon.innerHTML = `<i class="fas fa-moon"></i>`;
+    }
   }
 
   if (icon === "Clouds") {
