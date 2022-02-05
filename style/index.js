@@ -41,15 +41,11 @@ function formatHour(timestamp) {
 
 function formatMonthDate(timestamp) {
   let date = new Date(timestamp);
-  let month = date.getMonth();
-  if (month < 10) {
-    month = `${month}`;
-  }
-  let dates = date.getDate();
-  if (dates < 10) {
-    date = `0${date}`;
-  }
-  return `${month + 1}/${dates}`;
+  let month = `${(date.getMonth() + 1).toString().padStart(2, "0")}`;
+
+  let dates = `${date.getDate().toString().padStart(2, "0")}`;
+
+  return `${month}/${dates}`;
 }
 
 function newUnit(temperature) {
@@ -151,7 +147,7 @@ function showWeather(response) {
     response.data.weather[0].main
   );
   document.querySelector("#month").innerHTML = formatMonthDate(
-    response.data.dt
+    response.data.dt * 1000
   );
   document.querySelector("#h3-date0").innerHTML = formatDate(response.data.dt);
   document.querySelector("#city").innerHTML = response.data.name;
